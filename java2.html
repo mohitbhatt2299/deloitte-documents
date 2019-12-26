@@ -1,0 +1,43 @@
+<html>
+</head>
+<head>
+<body><form onsubmit="return funSubmit()">
+<input type="text" id="errorValue" oninput="textAlphabet()"/><span id="errorName"> </span><br>
+gender  :-
+  <input type="radio" name="gender" value="m"><br>
+  <input type="radio" name="gender" value="f"><br>
+
+
+<span id="errorGen"> </span>
+
+<input type="submit">
+</form >
+<script>
+	function textAlphabet(){
+		var userValue=document.getElementById("errorValue").value;
+		var namePattern="^[A-Za-z]+$";
+		if(!userValue.match(namePattern))
+			document.getElementById("errorName").innerHTML="use alphabets for name ";
+		else
+			document.getElementById("errorName").innerHTML="";
+	}
+	function funSubmit(){
+	    var elementR=document.getElementsByName("gender");
+		var count=0;
+	    for(var i=0;i<elementR.length;i++){
+		if(elementR[i].checked)
+		count++;
+	}
+	if(count==0){
+	document.getElementById("errorGen").innerHTML="select gender";
+	 return false;
+	}
+	else{
+	document.getElementsById("errorGen").innerHTML="";
+	return true;
+	}
+	}
+</script>
+
+</body>
+</html>

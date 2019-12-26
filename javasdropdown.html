@@ -1,0 +1,42 @@
+<html>
+</head>
+<head>
+<body><form onsubmit="return selectClassFun()">
+<input type="text" id="errorValue" oninput="textAlphabet()"/><span id="errorName"> </span><br>
+gender  :-
+  <input type="radio" name="gender" value="m"><br>
+  <input type="radio" name="gender" value="f"><br>
+
+<select>
+<option value="selectAny">Select any option
+<option class="op" value="bca">BCA
+<option class="op" value="btech">BTech
+<option class="op" value="bcom">BCom
+<option class="op" value="bsc">BSc
+</select>
+<span id="errorClass"> </span>
+
+<input type="submit">
+</form >
+<script>
+    function selectClassFun(){
+	  var sel=document.getElementsByClassName("op")
+	  var count=0;
+	  for(var i=0;i<sel.length;i++){
+		if(sel[i].selected)
+		count++;
+	}
+	if(count==0){
+	document.getElementById("errorClass").innerHTML="select any class";
+	 return false;
+	}
+	else{
+	document.getElementsById("errorClass").innerHTML="";
+	return true;
+	}
+	}
+	
+</script>
+
+</body>
+</html>
